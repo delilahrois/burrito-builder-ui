@@ -11,6 +11,7 @@ class OrderForm extends Component {
   }
 
 
+
   handleSubmit = e => {
     e.preventDefault();
     this.clearInputs();
@@ -20,11 +21,22 @@ class OrderForm extends Component {
     this.setState({name: '', ingredients: []});
   }
 
+  handleNameChange = (e) => {
+    this.setState({name: e.target.value})
+  }
+
+  handleIngredientChange = (e) => {
+    e.preventDefault();
+    this.setState({ingredients: [...this.state.ingredients, e.target.value]})
+  }
+
+  
+
   render() {
     const possibleIngredients = ['beans', 'steak', 'carnitas', 'sofritas', 'lettuce', 'queso fresco', 'pico de gallo', 'hot sauce', 'guacamole', 'jalapenos', 'cilantro', 'sour cream'];
     const ingredientButtons = possibleIngredients.map(ingredient => {
       return (
-        <button key={ingredient} name={ingredient} onClick={e => this.handleIngredientChange(e)}>
+        <button key={ingredient} name={ingredient} value={ingredient} onClick={e => this.handleIngredientChange(e)}>
           {ingredient}
         </button>
       )
