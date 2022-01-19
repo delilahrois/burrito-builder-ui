@@ -25,7 +25,7 @@ class App extends Component {
   handleNewOrder = (order) => {
     submitOrder(order)
     .then(response => response.json())
-    .then(this.updateOrders())
+    .then(this.componentDidMount())
   }
 
   render() {
