@@ -3,6 +3,7 @@ import './Orders.css';
 
 const Orders = props => {
   const orderEls = props.orders.map(order => {
+    console.log(order.name)
     return (
       <div className="order" key={order.name} >
         <h3>{order.name}</h3>
