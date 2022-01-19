@@ -2,3 +2,13 @@ export const getOrders = async () => {
   return await fetch('http://localhost:3001/api/v1/orders')
       .then(response => response.json())
 }
+
+export const submitOrder = async (data) => {
+  return await fetch('http://localhost:3001/api/v1/orders', {
+    method: 'POST', 
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+}
